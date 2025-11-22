@@ -3,7 +3,7 @@ import { CardList } from "./cardList";
 
 export const ShowCard = () => {
   return (
-    <ul>
+    <ul className="grid grid-three--cols">
       {SeriesData.map((element) => (
         <CardList key={element.id} data={element} />
       ))}
