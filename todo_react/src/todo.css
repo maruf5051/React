@@ -68,7 +68,7 @@ form input {
   transition: background-color 200ms ease-in-out;
   width: 100%;
   background-color: #f2f3f4;
-  color: var(--primary-color);
+  color: #222;
 }
 
 form input:hover {
@@ -76,7 +76,7 @@ form input:hover {
 }
 
 form input::placeholder {
-  color: white;
+  color: #222;
   opacity: 0.7;
 }
 
@@ -100,7 +100,8 @@ form button {
   border-bottom-right-radius: 15px;
   min-width: 100px;
   background-color: #5dade2;
-  color: var(--secondary-color);
+  color: #fff;
+  height: 53px;
 }
 
 span {
@@ -116,7 +117,6 @@ span {
 
 .todo-list {
   min-width: 25%;
-
   /* To remove the bullets of unordered list */
   list-style: none;
 }
@@ -152,8 +152,8 @@ li span {
 .delete-btn {
   font-size: 3rem;
   cursor: pointer;
-  width: 3rem;
-  height: 3rem;
+  width: 3.8rem;
+  height: 3.8rem;
   border-radius: 80%;
   margin: 0 5px;
   background-color: #fff;
