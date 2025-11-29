@@ -105,18 +105,18 @@ form button {
 }
 
 span {
-  margin-right: 3.2rem;
+  margin: 1rem;
 }
 
 .myUnOrdList {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 1200px;
+  width: 1200px;
 }
 
 .todo-list {
-  min-width: 25%;
+  min-width: 200px;
   /* To remove the bullets of unordered list */
   list-style: none;
 }
@@ -126,25 +126,25 @@ span {
   /*word-wrap: break-word;
     */ /*flex-wrap: wrap;
     */
-  font-size: 20px;
+  font-size: 30px;
   color: #1c2833;
-  border-radius: 30px;
+  border-radius: 20px;
   transition: background-color 200ms ease-in-out;
   background-color: #f2f3f4;
-  min-width: 35rem;
-  max-width: 40rem;
-  padding: 1.6rem 3rem;
+  min-width: 25rem;
+  max-width: 30rem;
+  padding: 1rem 3rem;
   display: grid;
   grid-template-columns: 1fr 0.3fr 0.3fr;
   justify-content: start;
-  gap: 1.6rem;
+  gap: 1.2rem;
   /*align-items: center;
     */ /*wrapsthelinks*/
   overflow-wrap: anywhere;
 }
 
 li span {
-  max-width: 20rem;
+  max-width: 15rem;
   color: #1c2833;
 }
 
@@ -152,8 +152,8 @@ li span {
 .delete-btn {
   font-size: 3rem;
   cursor: pointer;
-  width: 3.8rem;
-  height: 3.8rem;
+  width: 3.6rem;
+  height: 3.6rem;
   border-radius: 80%;
   margin: 0 5px;
   background-color: #fff;
