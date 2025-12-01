@@ -134,9 +134,9 @@ span {
   min-width: 25rem;
   max-width: 30rem;
   padding: 1rem 3rem;
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 0.3fr 0.3fr;
-  justify-content: start;
+  justify-content: space-between;
   gap: 1.2rem;
   /*align-items: center;
     */ /*wrapsthelinks*/

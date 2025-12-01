@@ -1,5 +1,4 @@
 import { MdDeleteForever } from "react-icons/md";
-import { MdCheck } from "react-icons/md";
 import { useEffect, useState } from "react";
 import "./todo.css";
 
@@ -86,9 +85,6 @@ export const Todo = () => {
             return (
               <li key={index} className="todo-item">
                 <span>{curEle}</span>
-                <button className="check-btn">
-                  <MdCheck />
-                </button>
                 <button
                   className="delete-btn"
                   onClick={() => handleDelete(curEle)}
