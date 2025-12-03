@@ -1,12 +1,14 @@
 // import { Counter } from "./Hooks/useState/useState";
+// import { RegistrationForm } from "./Hooks/useState/registration";
 
-import { RegistrationForm } from "./Hooks/useState/registration";
+import { LoginForm } from "./Hooks/useState/login";
 
 export const App = () => {
   return (
     <section>
       {/* <Counter /> */}
-      <RegistrationForm />
+      {/* <RegistrationForm /> */}
+      <LoginForm />
     </section>
   );
 };
