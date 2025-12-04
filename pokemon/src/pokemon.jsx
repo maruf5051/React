@@ -1,5 +1,5 @@
-import "./pokemon.css";
 import { useState, useEffect } from "react";
+import "./index.css";
 
 export const Pokemon = () => {
   const [pokemon, setPokemon] = useState(null); // State to hold Pokémon data
@@ -8,6 +8,7 @@ export const Pokemon = () => {
 
   const API = "https://pokeapi.co/api/v2/pokemon/pikachu";
 
+  /*
   const fetchPokemon = () => {
     fetch(API)
       .then((res) => res.json())
@@ -20,11 +21,32 @@ export const Pokemon = () => {
         setError(error);
         setLoading(false);
       });
+  }; 
+  */
+
+  const fetchPokemon = async () => {
+    try {
+      const Response = await fetch(API);
+      const data = await Response.json();
+      setPokemon(data);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setError(error);
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
-    fetchPokemon();
+    const getPokemon = async () => {
+      await fetchPokemon();
+    };
+    getPokemon();
   }, []);
+
+  /* useEffect(() => {
+    fetchPokemon();
+  }, []); */
 
   if (loading) {
     return (
