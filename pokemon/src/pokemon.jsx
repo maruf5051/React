@@ -1,34 +1,28 @@
 import { useState, useEffect } from "react";
 import "./index.css";
+import { PokemonCard } from "./pokemonCard";
 
 export const Pokemon = () => {
   const [pokemon, setPokemon] = useState(null); // State to hold Pokémon data
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState(null); // Error state
 
-  const API = "https://pokeapi.co/api/v2/pokemon/pikachu";
-
-  /*
-  const fetchPokemon = () => {
-    fetch(API)
-      .then((res) => res.json())
-      .then((data) => {
-        setPokemon(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setError(error);
-        setLoading(false);
-      });
-  }; 
-  */
+  const API = "https://pokeapi.co/api/v2/pokemon?limit=200";
 
   const fetchPokemon = async () => {
     try {
-      const Response = await fetch(API);
-      const data = await Response.json();
-      setPokemon(data);
+      const response = await fetch(API);
+      const data = await response.json();
+
+      const detailedPokemonData = data.results.map(async (curPokemon) => {
+        const response = await fetch(curPokemon.url);
+        const data = await response.json();
+        return data;
+      });
+
+      const detailedResponse = await Promise.all(detailedPokemonData);
+      console.log(detailedResponse);
+      setPokemon(detailedResponse);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -65,33 +59,21 @@ export const Pokemon = () => {
   }
 
   return (
-    <section className="container">
-      <header>
-        <h1> Lets Catch Pokémon</h1>
-      </header>
-      <ul className="card-demo">
-        <li className="pokemon-card">
-          <figure>
-            <img
-              src={pokemon.sprites.other.dream_world.front_default}
-              alt={pokemon.name}
-              className="pokemon-image"
-            />
-          </figure>
-          <h1>{pokemon.name}</h1>
-          <div className="grid-three-cols">
-            <p className="pokemon-info">
-              Height: <span> {pokemon.height} </span>
-            </p>
-            <p className="pokemon-info">
-              Weight: <span> {pokemon.weight}</span>
-            </p>
-            <p className="pokemon-info">
-              speed: <span>{pokemon.stats[5].base_stat}</span>
-            </p>
-          </div>
-        </li>
-      </ul>
-    </section>
+    <>
+      <section className="container">
+        <header>
+          <h1> Lets Catch Pokémon</h1>
+        </header>
+        <div>
+          <ul className="cards">
+            {pokemon.map((curPokemon) => {
+              return (
+                <PokemonCard key={curPokemon.id} pokemonData={curPokemon} />
+              );
+            })}
+          </ul>
+        </div>
+      </section>
+    </>
   );
 };
